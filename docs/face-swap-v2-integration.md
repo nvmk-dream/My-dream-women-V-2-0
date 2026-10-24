@@ -15,6 +15,7 @@ This is the working log for the private V2 integration branch. Update this file 
 - The current integration is a source snapshot, not yet a Git submodule. The standalone Face Swap app remains independently updateable; updating this V2 copy still requires a new V2 APK build.
 - The copied Kotlin/Compose screen, ONNX Runtime and local model import behavior are retained. The main route's source/result photos are processed on-device.
 - Imported ONNX files are copied into V2's app-private storage. The V2 and standalone app do not automatically share their private model folders, so importing into V2 can use additional phone storage.
+- The existing V3 Render API URL remains configured for the app's unrelated backend features. This Face Swap route does not send images there, but the V2 APK is not fully backend-isolated.
 - Before applying this to V3, evaluate extracting the tested native code into a shared module/submodule so both apps can consume the same maintained source.
 - The separate Group Chat Face Swap flow still uploads to Cloudinary and calls `/api/face-swap`. It was not changed by this main-route integration; do not describe all app face-swap flows as local until that separate path is addressed.
 
@@ -30,4 +31,5 @@ This is the working log for the private V2 integration branch. Update this file 
 - Expo Android prebuild succeeded and generated the native Activity, React Native bridge, manifest entry, Compose dependencies, and local resources.
 - The full TypeScript check still reports 24 errors in unrelated existing files; the new Face Swap route has no reported type errors.
 - Found a separate Group Chat cloud face-swap path; it is unchanged and documented as out of scope for this main-route integration.
+- Confirmed the existing V3 Render API base URL remains for other app features; no V2 Render deployment or backend change was made.
 - APK build verification is still pending.
