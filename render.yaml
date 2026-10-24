@@ -3,6 +3,7 @@ services:
     name: api-server
     runtime: node
     region: singapore
+    autoDeploy: false
     buildCommand: bash render-build.sh
     startCommand: node --enable-source-maps artifacts/api-server/dist/index.mjs
     envVars:
