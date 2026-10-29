@@ -33,4 +33,4 @@ This is the working log for the private V2 integration branch. Update this file 
 - Found a separate Group Chat cloud face-swap path; it is unchanged and documented as out of scope for this main-route integration.
 - Confirmed the existing V3 Render API base URL remains for other app features; no V2 Render deployment or backend change was made.
 - The first APK workflow run stalled while installing ImageMagick and was canceled. The workflow now uses the runner's copy when available and limits fallback package installation to five minutes.
-- APK build verification is still pending.
+- APK workflow run 2 passed JavaScript bundling but failed in Kotlin compilation: the native bridge used an unqualified `currentActivity`, which also caused the activity-launch and `Intent` type errors. `openFaceSwap` now reads the Activity from `ReactApplicationContext`; APK verification is pending. Render was not triggered. [Run 2](https://github.com/nvmk-dream/My-dream-women-V-2-0/actions/runs/40047502052)

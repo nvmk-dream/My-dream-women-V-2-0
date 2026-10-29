@@ -36,7 +36,7 @@ class FaceSwapStudioModule(
 
   @ReactMethod
   fun openFaceSwap(promise: Promise) {
-    val activity = currentActivity
+    val activity = reactContext.currentActivity
     if (activity == null) {
       promise.reject("E_NO_ACTIVITY", "The app activity is not available.")
       return
